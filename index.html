@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Pose Specs Filter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(120deg, #0f0f0f, #1a1a1a);
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      position: relative;
+      border: 4px solid #444;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    canvas {
+      display: block;
+      transform: scaleX(-1);
+    }
+    video {
+      display: none;
+    }
+    .title {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px black;
+      z-index: 10;
+    }
+  </style>
+
+  <!-- TensorFlow and Pose Detection -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="title">🎯 Pose Filter: Spectacles Overlay</div>
+    <video id="video" playsinline></video>
+    <canvas id="output" width="800" height="500"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
